@@ -1,0 +1,50 @@
+
+# === 301 Redirects: Broken Product Links (added 2026-09-15) ===
+RewriteEngine On
+
+# Redirect www ke non-www
+RewriteCond %{HTTP_HOST} ^www\.peralatankantor\.web\.id$ [NC]
+RewriteRule ^(.*)$ https://peralatankantor.web.id/$1 [R=301,L]
+
+# Redirect ?slug= format ke halaman statis
+RewriteCond %{QUERY_STRING} ^slug=meja-komputer-workstation(-kantor)?$
+RewriteRule ^produk-detail/? /detail-produk-meja-komputer-workstation-kantor.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^slug=meja-kerja-staff-l-shape$
+RewriteRule ^produk-detail/? /detail-produk-meja-kerja-staff-l-shape.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^slug=tempat-sampah-kantor-set$
+RewriteRule ^produk-detail/? /detail-produk-set-tempat-sampah-kantor.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^slug=papan-tulis-whiteboard-kantor$
+RewriteRule ^produk-detail/? /detail-produk-papan-tulis-whiteboard-kantor.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^slug=meja-kantor-minimalis-kayu$
+RewriteRule ^produk-detail/? /detail-produk-meja-kantor-minimalis-kayu.html? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^slug=meja-rapat-kantor$
+RewriteRule ^produk-detail/? /detail-produk-meja-rapat-kantor.html? [R=301,L]
+
+# Redirect nama file lama ke nama file baru
+Redirect 301 /detail-produk-tempat-sampah-kantor-set.html /detail-produk-set-tempat-sampah-kantor.html
+Redirect 301 /detail-produk-perlengkapan-meja-stapler-gunting.html /detail-produk-set-perlengkapan-meja.html
+Redirect 301 /detail-produk-kursi-manager-mesh-kulit.html /detail-produk-kursi-kantor-manager-mesh-kulit.html
+# ================================================================
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml font/woff font/woff2
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
